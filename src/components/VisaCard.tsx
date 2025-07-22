@@ -154,9 +154,9 @@ export function VisaCard({ country }: { country: string }) {
 
       {/* Barcode */}
       <div className="absolute bottom-12 left-0 right-0 h-16 bg-white border-t border-b border-gray-300 flex items-center justify-center">
-        <div className="w-full h-12 bg-white flex items-center justify-center text-gray-500 text-xs relative">
+        <div className="w-full h-10 bg-white flex items-center justify-center text-gray-500 text-xs relative">
           {/* Barcode lines (shortened for brevity) */}
-          <div className="absolute inset-0 flex items-center z-20 ml-2 -mt-1">
+          <div className="absolute inset-0 flex items-center z-20 ml-2 -mt-0">
             {[...Array(200)].map((_, i) => (
               <div key={i} className={`h-full ${i % 3 === 0 ? 'w-[2px]' : 'w-[1px]'} bg-black mr-[1px]`} />
             ))}
@@ -168,7 +168,7 @@ export function VisaCard({ country }: { country: string }) {
       {/* MRZ */}
       <div className="absolute bottom-4 left-4 right-4 text-[10px] font-mono tracking-wider leading-tight text-black z-10">
         <div className="px-2 py-1 ">
-          <div>VUSATRAVELER{"<<<<<<<<<<<<<<<"}HAPPY{"<<<<<<<<<<<<<<<"}</div>
+          <div>VISATRAVELER{"<<<<<<<<<<<<<<<"}HAPPY{"<<<<<<<<<<<<<<<"}</div>
           <div>P63262{"<<<<<<<<<<<<<<<"}5MAR7501012F3205156B3C9809018{"<<<<<<<<<<<<<<<"}02</div>
         </div>
       </div>
