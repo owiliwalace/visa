@@ -153,7 +153,7 @@ export function Hero() {
           className="w-1/2"
         >
           <div className="relative w-[500px] h-[350px]">
-            <div className="absolute inset-0 rounded-xl shadow-lg " />
+            <div className="absolute inset-0  " />
             <VisaCard country={""}  />
           </div>
           <div className="mt-6">

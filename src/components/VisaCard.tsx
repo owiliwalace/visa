@@ -111,38 +111,42 @@ export function VisaCard({ country }: { country: string }) {
 
       {/* Issuing Post */}
       <div className="absolute top-12 left-0 right-0 h-8 bg-blue-800 text-white text-xs flex items-center px-4">
-        <span className="font-bold mr-2">Issuing Post Name:</span> NEW YORK
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-row px-4 py-6 gap-4 mt-12">
-        <div className="w-[100px] h-[120px] bg-gray-200 overflow-hidden relative shadow-sm">
+      <div className="relative z-10 flex flex-row px-4 py-6 gap-4 mt-8">
+        <div className="w-[120px] h-[140px]  overflow-hidden relative shadow-sm mt-8">
           <Image
             src="/assets/bg.png"
             alt="Passport Photo"
-            width={100}
-            height={120}
+            width={130}
+            height={140}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-blue-500 opacity-5" />
-          <div className="absolute bottom-1 left-1 text-[6px] text-blue-900 opacity-30">US DEPARTMENT OF STATE</div>
         </div>
 
         {/* Info */}
         <div className="text-[11px] leading-tight text-black w-full font-mono relative">
           <div className="absolute z-50 -left-4 -top-4 text-[40px] font-bold text-blue-200 opacity-20">VISA</div>
 
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 relative z-10">
-            <p><strong className="text-blue-900">Surname:</strong> TRAVELER</p>
-            <p><strong className="text-blue-900">Given Name:</strong> HAPPY</p>
+          <div className="grid grid-cols-3 gap-x-3 gap-y-1 relative z-10 mt-8">
+           <div>
+            <p><strong className="text-blue-900">Issuing Post Name</strong> NEW YORK</p>
+            <p><strong className="text-blue-900">Surname</strong> TRAVELER</p>
+            <p><strong className="text-blue-900">Given Name</strong> HAPPY</p>
+            </div> 
+                        <p><strong className="text-blue-900">Control Number</strong> 202221666638944</p>
+
             <p><strong className="text-blue-900">Passport Number:</strong> P632627</p>
+            
             <p><strong className="text-blue-900">Date of Birth:</strong> 01JAN1975</p>
             <p><strong className="text-blue-900">Nationality:</strong> MOROCCAN</p>
             <p><strong className="text-blue-900">Visa Type/Class:</strong> R B1/B2</p>
-            <p><strong className="text-blue-900">Control Number:</strong> 202221666638944</p>
-            <p><strong className="text-blue-900">Issue Date:</strong> 15 MAY 2022</p>
-            <p><strong className="text-blue-900">Expiration:</strong> 15 MAY 2026</p>
+            <p><strong className="text-blue-900">Issue Date</strong>  15 MAY 2022</p>
+            <p><strong className="text-blue-900">Expiration</strong> 15 MAY 2026</p>
             <p><strong className="text-blue-900">Entries:</strong> M</p>
+                        <p><strong className="text-blue-900">Sex:</strong> M</p>
+
             <p><strong className="text-blue-900">Annotation:</strong> BUSINESS/TOURISM</p>
           </div>
         </div>
