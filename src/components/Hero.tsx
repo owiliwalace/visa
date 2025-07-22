@@ -111,9 +111,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-bold text-gray-900 mb-6 text-left"
+            className="text-5xl font-bold text-purple-400 mb-4 text-left"
           >
-            Visualize Your Visa Before You Apply
+            Visatile
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -121,8 +121,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-600 mb-8 text-left"
           >
-            See exactly how your visa will look and get personalized requirements 
-            for your destination country before starting your application.
+            Check requirements for your destination country before starting your application.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -134,7 +133,7 @@ export function Hero() {
               onClick={() => document.getElementById('visa-preview')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 shadow-lg transform hover:scale-105 transition-transform"
             >
-              Preview Your Visa
+              Apply Now
             </button>
             <button 
               onClick={() => router.push('/requirements')}
@@ -153,7 +152,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="w-1/2"
         >
-          <div className="relative w-full h-[350px]">
+          <div className="relative w-[500px] h-[350px]">
             <div className="absolute inset-0 rounded-xl shadow-lg " />
             <VisaCard country={""}  />
           </div>

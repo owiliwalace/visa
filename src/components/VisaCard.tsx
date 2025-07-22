@@ -153,12 +153,12 @@ export function VisaCard({ country }: { country: string }) {
         <div className="w-full h-12 bg-white flex items-center justify-center text-gray-500 text-xs relative">
           {/* Barcode lines (shortened for brevity) */}
           <div className="absolute inset-0 flex items-center z-20 ml-2 -mt-1">
-            {[...Array(30)].map((_, i) => (
+            {[...Array(200)].map((_, i) => (
               <div key={i} className={`h-full ${i % 3 === 0 ? 'w-[2px]' : 'w-[1px]'} bg-black mr-[1px]`} />
             ))}
           </div>
-          <div className="text-[8px] absolute bottom-0 mt-1">202221666638944</div>
         </div>
+          <div className="text-[8px] absolute bottom-0 mt-7">202221666638944</div>
       </div>
 
       {/* MRZ */}
