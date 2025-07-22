@@ -16,8 +16,8 @@ export function VisaCard({ country }: { country: string }) {
       const { width, height, left, top } = el.getBoundingClientRect()
       const x = e.clientX - left
       const y = e.clientY - top
-      const rotateY = ((x / width) - 0.5) * 10
-      const rotateX = ((y / height) - 0.5) * -10
+      const rotateY = ((x / width) - 1) * 10
+      const rotateX = ((y / height) - 1) * -10
       gsap.to(el, { rotateX, rotateY, duration: 0.4 })
     }
 
@@ -56,7 +56,7 @@ export function VisaCard({ country }: { country: string }) {
             duration: 4,
             ease: "linear"
           }}
-          className="w-[80%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform rotate-12"
+          className="w-[100%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform rotate-12"
           style={{
             mixBlendMode: 'overlay',
             filter: 'blur(6px)',
@@ -149,21 +149,21 @@ export function VisaCard({ country }: { country: string }) {
       </div>
 
       {/* Barcode */}
-      <div className="absolute bottom-12 left-0 right-0 h-16 bg-gray-100 border-t border-b border-gray-300 flex items-center justify-center">
-        <div className="w-full h-12 bg-white border border-gray-300 flex items-center justify-center text-gray-500 text-xs relative">
+      <div className="absolute bottom-12 left-0 right-0 h-16 bg-white border-t border-b border-gray-300 flex items-center justify-center">
+        <div className="w-full h-12 bg-white flex items-center justify-center text-gray-500 text-xs relative">
           {/* Barcode lines (shortened for brevity) */}
-          <div className="absolute inset-0 flex items-center z-20 ml-2">
+          <div className="absolute inset-0 flex items-center z-20 ml-2 -mt-1">
             {[...Array(30)].map((_, i) => (
               <div key={i} className={`h-full ${i % 3 === 0 ? 'w-[2px]' : 'w-[1px]'} bg-black mr-[1px]`} />
             ))}
           </div>
-          <div className="text-[8px] absolute bottom-0">202221666638944</div>
+          <div className="text-[8px] absolute bottom-0 mt-1">202221666638944</div>
         </div>
       </div>
 
       {/* MRZ */}
       <div className="absolute bottom-4 left-4 right-4 text-[10px] font-mono tracking-wider leading-tight text-black z-10">
-        <div className="px-2 py-1 border">
+        <div className="px-2 py-1 ">
           <div>VUSATRAVELER{"<<<<<<<<<<<<<<<"}HAPPY{"<<<<<<<<<<<<<<<"}</div>
           <div>P63262{"<<<<<<<<<<<<<<<"}5MAR7501012F3205156B3C9809018{"<<<<<<<<<<<<<<<"}02</div>
         </div>
