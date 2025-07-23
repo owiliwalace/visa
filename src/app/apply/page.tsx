@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useMemo, useState } from 'react'
+import Image from "next/image"
+
 
 export default function ExplorePage() {
   const router = useRouter()
@@ -43,6 +45,13 @@ export default function ExplorePage() {
       {/* NavBar */}
       <nav className="w-full bg-white shadow sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Image
+                                     src="/assets/logo.png"
+                                     alt="Passport Photo"
+                                     width={50}
+                                     height={50}
+                                     className="object-cover"
+                                   />
           <div className="text-xl font-bold text-indigo-600 cursor-pointer" onClick={() => router.push('/')}>
             Visatile
           </div>
