@@ -2,6 +2,9 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from "next/image"
+import router from 'next/router'
+import Link from 'next/link'
+
 
 export default function VisaApplicationPortal() {
   const [activeTab, setActiveTab] = useState('explore')
@@ -15,22 +18,25 @@ export default function VisaApplicationPortal() {
       <nav className="bg-white shadow-lg  sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-            <div className="flex items-center">
+            <div className="flex items-center"
+            onClick={() => router.push('/')}>
+                <Link href='/'>
               <motion.div 
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', stiffness: 300 }}
                 className="flex-shrink-0 flex items-center"
-              >
+                >
                 <Image
                                            src="/assets/logo.png"
                                            alt="Passport Photo"
                                            width={50}
                                            height={50}
                                            className="object-cover"
-                                         />
+                                           />
                 <span className="ml-2 text-xl font-bold text-gray-900">Visatile</span>
               </motion.div>
+                                           </Link>
             </div>
             <div className="hidden md:ml-6 md:flex md:space-x-8">
               {['explore', 'application', 'documents', 'status'].map((tab) => (
@@ -146,8 +152,10 @@ function ExploreCountries({ onSelectCountry }: { onSelectCountry: (country: stri
               className="bg-white overflow-hidden shadow rounded-lg cursor-pointer transition-all duration-300"
             >
               <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
+                <div className="flex items-center"
+                >
                   <img
+                  
                     src={`https://flagcdn.com/w40/${country.code}.png`}
                     alt={`${country.name} flag`}
                     className="w-10 h-7 rounded object-cover border border-gray-200"
@@ -268,7 +276,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
             <h4 className="text-md font-medium text-gray-900">Personal Information</h4>
             <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="first-name" className="block text-sm font-medium  text-gray-700">
                   First name
                 </label>
                 <input
@@ -276,7 +284,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:ring-indigo-500   focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -289,7 +297,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500   block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -302,7 +310,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:ring-indigo-500   focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -314,7 +322,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   id="country"
                   name="country"
                   autoComplete="country-name"
-                  className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full   py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                   <option>United States</option>
                   <option>Canada</option>
@@ -330,7 +338,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   type="date"
                   name="date-of-birth"
                   id="date-of-birth"
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:ring-indigo-500   focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -342,7 +350,7 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
                   type="text"
                   name="passport-number"
                   id="passport-number"
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  className="mt-1 focus:ring-indigo-500   focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 

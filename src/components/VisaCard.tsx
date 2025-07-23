@@ -137,17 +137,17 @@ export function VisaCard({ country }: { country: string }) {
             </div> 
                         <p><strong className="text-blue-900">Control Number</strong> 202221666638944</p>
 
-            <p><strong className="text-blue-900">Passport Number:</strong> P632627</p>
+            <p><strong className="text-blue-900">Passport Number </strong> P632627</p>
             
-            <p><strong className="text-blue-900">Date of Birth:</strong> 01JAN1975</p>
-            <p><strong className="text-blue-900">Nationality:</strong> MOROCCAN</p>
-            <p><strong className="text-blue-900">Visa Type/Class:</strong> R B1/B2</p>
+            <p><strong className="text-blue-900">Date of Birth </strong> 01JAN1975</p>
+            <p><strong className="text-blue-900">Nationality </strong> MOROCCAN</p>
+            <p><strong className="text-blue-900">Visa Type/Class </strong> R B1/B2</p>
             <p><strong className="text-blue-900">Issue Date</strong>  15 MAY 2022</p>
             <p><strong className="text-blue-900">Expiration</strong> 15 MAY 2026</p>
-            <p><strong className="text-blue-900">Entries:</strong> M</p>
-                        <p><strong className="text-blue-900">Sex:</strong> M</p>
+            <p><strong className="text-blue-900">Entries </strong> M</p>
+                        <p><strong className="text-blue-900">Sex </strong> M</p>
 
-            <p><strong className="text-blue-900">Annotation:</strong> BUSINESS/TOURISM</p>
+            <p><strong className="text-blue-900">Annotation </strong> BUSINESS/TOURISM</p>
           </div>
         </div>
       </div>
