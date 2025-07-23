@@ -131,7 +131,7 @@ export function Hero() {
             className="flex  flex-row  sm:flex-row gap-4 justify-start"
           >
             <button 
-onClick={() => router.push('/apply')}
+onClick={() => router.push('/application-form')}
               className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 shadow-lg transform hover:scale-105 transition-transform"
             >
               Apply Now
