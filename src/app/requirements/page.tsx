@@ -4,6 +4,11 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'framer-motion';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
+import Image from "next/image"
+import Link from 'next/link'
 
 type Requirement = {
   country: string;
@@ -112,14 +117,45 @@ export default function VisaRequirementsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-xl font-bold text-indigo-600">Visa Requirements</h1>
+        <div className="max-w-7xl mx-auto px-1 py-1 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link href='/'>
+              <motion.div 
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="flex-shrink-0 flex items-center"
+                >
+                <Image
+                                           src="/assets/logo.png"
+                                           alt="Passport Photo"
+                                           width={30}
+                                           height={30}
+                                           className="object-cover"
+                                           />
+
+                <span className="ml-2 text-xl font-bold text-gray-900">Visatile</span>
+              </motion.div>
+                                           </Link>
+          <div className='flex gap-2'>
+
           <Input
             placeholder="Search country..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full sm:w-80"
-          />
+            />
+            <Separator orientation="vertical" className='bo border-black' />
+          <Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+            <Badge
+          className="h-3 min-w-3 rounded-full px-1 font-mono tabular-nums ml-[-15px] z-30"
+          variant="destructive"
+        >
+        
+        </Badge>
+            </div>
         </div>
       </header>
 

@@ -4,11 +4,24 @@ import { motion } from 'framer-motion'
 import Image from "next/image"
 import router from 'next/router'
 import Link from 'next/link'
+import { Badge } from '@/components/ui/badge'
+import { ChevronDownIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import React from 'react'
 
 
 export default function VisaApplicationPortal() {
   const [activeTab, setActiveTab] = useState('explore')
   const [selectedCountry, setSelectedCountry] = useState('')
+  
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -16,7 +29,7 @@ export default function VisaApplicationPortal() {
 
       {/* Animated Navigation */}
       <nav className="bg-white shadow-lg  sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center"
             onClick={() => router.push('/')}>
@@ -34,6 +47,7 @@ export default function VisaApplicationPortal() {
                                            height={50}
                                            className="object-cover"
                                            />
+
                 <span className="ml-2 text-xl font-bold text-gray-900">Visatile</span>
               </motion.div>
                                            </Link>
@@ -68,6 +82,12 @@ export default function VisaApplicationPortal() {
 </div>
 
               <UserProfileDropdown />
+               <Badge
+          className="h-3 min-w-3 rounded-full px-0 font-mono tabular-nums ml-[-10px] mt-[-20px] z-30"
+          variant="destructive"
+        >
+        
+        </Badge>
             </div>
           </div>
         </div>
@@ -126,15 +146,15 @@ function ExploreCountries({ onSelectCountry }: { onSelectCountry: (country: stri
   }, [countries])
   return (
     <div>
-      <div className="text-center mb-5">
-        <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+      <div className="text-center mb-1">
+        <h1 className="text-2xl font-extrabold text-gray-900 sm:text-3xl sm:tracking-tight lg:text-3xl">
           Where would you like to go?
         </h1>
-        <p className="mt-3 max-w-xl mx-auto text-xl text-gray-500">
+        <p className="mt-1 max-w-xl mx-auto text-sm text-gray-500">
           Select a destination to see visa requirements and begin your application
         </p>
       </div>
-       <div className="sticky top-20 z-20  py-4">
+       <div className="sticky top-15 z-20  py-3">
           <div className="max-w-xl mx-auto">
             <input
               type="text"
@@ -144,7 +164,7 @@ function ExploreCountries({ onSelectCountry }: { onSelectCountry: (country: stri
             />
           </div>
         </div>
- <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ <div className="mt-1 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCountries.map((country) => (
             <motion.div
               key={country.code}
@@ -214,6 +234,9 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
 
   const handleNext = () => setStep(step + 1)
   const handleBack = () => step > 1 ? setStep(step - 1) : onBack()
+  const [open, setOpen] = React.useState(false)
+  const [date, setDate] = React.useState<Date | undefined>(undefined)
+
 
   return (
     <div className="bg-white shadow rounded-lg overflow-hidden">
@@ -331,15 +354,32 @@ function VisaApplicationForm({ country, onBack }: { country: string, onBack: () 
               </div>
 
               <div className="sm:col-span-2">
-                <label htmlFor="date-of-birth" className="block text-sm font-medium text-gray-700">
-                  Date of birth
-                </label>
-                <input
-                  type="date"
-                  name="date-of-birth"
-                  id="date-of-birth"
-                  className="mt-1 focus:ring-indigo-500   focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
+               <Label htmlFor="date" className="px-1">
+        Date of birth
+      </Label>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            id="date"
+            className="w-48 justify-between font-normal"
+          >
+            {date ? date.toLocaleDateString() : "Select date"}
+            <ChevronDownIcon />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            captionLayout="dropdown"
+            onSelect={(date) => {
+              setDate(date)
+              setOpen(false)
+            }}
+          />
+        </PopoverContent>
+      </Popover>
               </div>
 
               <div className="sm:col-span-2">
