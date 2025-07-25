@@ -106,7 +106,10 @@ export function VisaCard({ country }: { country: string }) {
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 h-12 bg-blue-900 text-white z-10 flex items-center justify-between px-4">
         <div className="font-bold text-xl tracking-widest">VISA</div>
-        <div className="text-sm font-serif italic">UNITED STATES OF AMERICA</div>
+        <div className="text-xl font-friz font-bold uppercase tracking-wide text-red-800">
+  UNITED STATES OF AMERICA
+</div>
+
       </div>
 
       {/* Issuing Post */}
